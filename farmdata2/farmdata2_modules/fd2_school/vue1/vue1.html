@@ -1,1 +1,15 @@
-<p> Hello! </p>
+<!DOCTYPE html>
+<div id ="First-vue" v-cloak>
+    <input type="text" v-model="header">
+    <h2>{{ header }}</h2>
+</div>
+<script>
+
+
+var firstVue = new Vue({
+el: "#First-vue",
+data: {
+    header: "My Sample Harvest Report"
+}
+});
+</script>
