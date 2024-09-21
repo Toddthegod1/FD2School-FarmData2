@@ -2,14 +2,38 @@
 <div id ="First-vue" v-cloak>
     <input type="text" v-model="header">
     <h2>{{ header }}</h2>
+
+    <label for="start-date"> Start Date:</label>
+    <input type ="date" id="start-date" min ="2014-01-01" max ="2020-01-01" v-model="startDate" />
+    <br>
+
+    <label for="end-date">End Date:</label>
+    <input type ="date" id="end-date" min ="2014-01-01" max ="2020-01-01" v-model="endDate" />
+`   <br>
+
+    <select id="Crops" v-model="selectedCrop" >
+        <optgroup label="Crops">
+          <option>Broccoli</option>
+          <option selected>Kale</option>
+          <option>Peas</option>
+        </optgroup>
+      </select>
+
+      <br>
+
+      <input type="button" value="Generate Report" />
+  
+    <br>
 </div>
+
 <script>
-
-
 var firstVue = new Vue({
 el: "#First-vue",
 data: {
-    header: "My Sample Harvest Report"
+    header: "My Sample Harvest Report",
+    startDate: " ",
+    endDate: " ",
+    selectedCrop: ""
 }
 });
 </script>
