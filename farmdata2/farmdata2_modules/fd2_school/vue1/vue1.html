@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div id ="First-vue" v-cloak>
     <input type="text" v-model="header">
-    <h2>{{ header }}</h2>
+    <h2> {{ header ? header : "Mock Harvest Report"}} </h2>
 
     <label for="start-date"> Start Date:</label>
     <input type ="date" id="start-date" min ="2014-01-01" max ="2020-01-01" v-model="startDate" />
