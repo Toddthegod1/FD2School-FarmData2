@@ -2,6 +2,9 @@
 <div id ="First-vue" v-cloak>
     <input type="text" v-model="header">
     <h2> {{ header ? header : "Mock Harvest Report"}} </h2>
+    <ul>
+        <li v-for="name in names">{{ name }}</li>
+    </ul>
 
     <label for="start-date"> Start Date:</label>
     <input type ="date" id="start-date" min ="2014-01-01" max ="2020-01-01" v-model="startDate" />
@@ -11,11 +14,18 @@
     <input type ="date" id="end-date" min ="2014-01-01" max ="2020-01-01" v-model="endDate" />
 `   <br>
 
+    <label for = "Crops"> Crops: </label>
     <select id="Crops" v-model="selectedCrop" >
         <optgroup label="Crops">
-          <option>Broccoli</option>
-          <option selected>Kale</option>
-          <option>Peas</option>
+            <option v-for="crop in crops"> {{ crop }} </option>
+        </optgroup>
+      </select>
+
+      <br>
+      <label for = "Areas "> Areas:</label>
+      <select id="Areas" v-model="selectedArea" >
+        <optgroup label="Areas">
+            <option v-for="area in areas"> {{ area }} </option>
         </optgroup>
       </select>
 
@@ -33,7 +43,17 @@ data: {
     header: "My Sample Harvest Report",
     startDate: " ",
     endDate: " ",
-    selectedCrop: ""
+    selectedCrop: "",
+    selectedArea: "",
+    names: [
+        "Joe",
+        "Arun",
+        "Ouwen",
+        "Anh",
+        "Sue",
+    ],
+    crops: ["Broccoli", "Kale", "Peas"],
+    areas: ["North Field", "South Field", "Greenhouse"]
 }
 });
 </script>
