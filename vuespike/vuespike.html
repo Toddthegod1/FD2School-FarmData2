@@ -11,8 +11,13 @@
   </head>
   <body>
     <div id="shopping-list" v-cloak>
-        <h1> {{ header }}</h1>
+        <h1> {{ header.toLocaleUpperCase() }}</h1>
+        <li v-for="c in cards"> {{ c.suit }} of {{ c.rank}}</li>
         <input type="text" v-model="header">
+        <br>
+        <label for = "newName"> Name:</label>
+        <input type = "text" id = "newName" v-model="newName" @keyup.enter="addName">
+        <button class = "btn btn-primary" @click = "addName" >Add Name</button>
     </div>
     <script src = "https://unpkg.com/vue@2"> </script>
         <h1> Hi Vue! </h1>
@@ -20,8 +25,25 @@
             var shoppingList = new Vue({
                 el: "#shopping-list",
                 data: {
-                    header: "Vue is ready to party!"
-                }
+                    header: "Vue is ready to party!",
+                    newName: "",
+                    names: [],
+                    cards: [
+                      {suit: "H", rank: "3"},
+                      {suit: "S", rank: "K"},
+                      {suit: "D", rank: "7"}
+                      
+                    ]
+              
+                },
+                methods: {
+                  addName: function() {
+                  if (this.newName !== '') {
+                    this.names.push(this.newName);
+                    this.newName = '';
+                  }
+        }
+      }
         });
         </script>
   </body>
