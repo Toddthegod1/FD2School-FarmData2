@@ -32,7 +32,7 @@
       <br>
 
       
-      <button @click="harvestLogs.push({date: '2018-05-01', area:'Orion-3', crop: 'kale', yield: '100', units: 'kg'})">Generate Report </button>
+      <button @click="generateReport">Generate Report </button>
     <br>
 
     <table border = "1">
@@ -73,7 +73,18 @@ data: {
     crops: ["Broccoli", "Kale", "Peas"],
     areas: ["North Field", "South Field", "Greenhouse"],
     harvestLogs: [
-    ]
+    ],
+},
+    methods: {
+    generateReport: function() {
+        this.harvestLogs.push({
+            date: '2018-05-01',
+            area: 'Orion-3',
+            crop: 'kale',
+            yield: '100',
+            units: 'kg'
+        });
+    } 
 }
 });
 Vue.config.devtools = true;
