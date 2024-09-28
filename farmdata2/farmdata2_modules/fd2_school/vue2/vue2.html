@@ -31,8 +31,8 @@
 
       <br>
 
-      <input type="button" value="Generate Report" />
-  
+      
+      <button @click="harvestLogs.push({date: '2018-05-01', area:'Orion-3', crop: 'kale', yield: '100', units: 'kg'})">Generate Report </button>
     <br>
 
     <table border = "1">
@@ -73,8 +73,6 @@ data: {
     crops: ["Broccoli", "Kale", "Peas"],
     areas: ["North Field", "South Field", "Greenhouse"],
     harvestLogs: [
-        {date: "2018-05-02", area: "Chuau-1", crop: "Kale", yield: "10", units: "Bunches"},
-        {date: "2024-16-05", area: "Joe mama", crop: "Corn", yield: "14", units: "Handfuls"}
     ]
 }
 });
