@@ -7,11 +7,11 @@
     </ul>
 
     <label for="start-date"> Start Date:</label>
-    <input type ="date" id="start-date" min ="2014-01-01" max ="2020-01-01" v-model="startDate" />
+    <input type ="date" id="start-date" min ="2014-01-01" :max ="endDate" v-model="startDate" />
     <br>
 
     <label for="end-date">End Date:</label>
-    <input type ="date" id="end-date" min ="2014-01-01" max ="2020-01-01" v-model="endDate" />
+    <input type ="date" id="end-date" :min ="startDate" max ="2020-01-01" v-model="endDate" />
 `   <br>
 
     <label for = "Crops"> Crops: </label>

@@ -23,7 +23,7 @@
         <br>
         <label for = "newName"> Name:</label>
         <input type = "text" id = "newName" v-model="newName" @keyup.enter="addName">
-        <button class = "btn btn-primary" @click = "addName" >Add Name</button>
+        <button class = "btn btn-primary" v-bind:disabled= "newName.length === 0" @click = "addName" >Add Name</button>
         <ul>
           <li v-for="(name,index) in names">{{ name + " (" + index + ")"}}  </li>
         </ul>
