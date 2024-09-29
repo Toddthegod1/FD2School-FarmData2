@@ -34,7 +34,7 @@
       
       <button @click="generateReport">Generate Report </button>
     <br>
-
+      <div v-if="harvestLogs.length > 0">
     <table border = "1">
         <tr>
             <th> Row </th>
@@ -54,6 +54,8 @@
         </tr>
 
     </table>
+</div>
+<p v-else> No Matching Records</p>
 </div>
 
 <script>
