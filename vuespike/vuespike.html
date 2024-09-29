@@ -19,7 +19,7 @@
         <input type = "text" id = "newName" v-model="newName" @keyup.enter="addName">
         <button class = "btn btn-primary" @click = "addName" >Add Name</button>
         <ul>
-          <li v-for="name in names">{{ name }}  </li>
+          <li v-for="(name,index) in names">{{ name + " (" + index + ")"}}  </li>
         </ul>
     </div>
     <script src = "https://unpkg.com/vue@2"> </script>
