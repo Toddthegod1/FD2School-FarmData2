@@ -67,8 +67,8 @@ data: {
     endDate: " ",
     selectedCrop: "",
     selectedArea: "",
-    Farm: " ",
-    User: " ",
+    farm: " ",
+    user: " ",
     language: " ",
     names: [
         "Joe",
@@ -84,12 +84,18 @@ data: {
 },
     methods: {
     generateReport: function() {
+        this.farm = 'Sample Farm';
+        this.user = 'Manager1';
+        this.language = 'English'
         this.harvestLogs.push({
             date: '2018-05-01',
             area: 'Orion-3',
             crop: 'kale',
             yield: '100',
-            units: 'kg'
+            units: 'kg',
+            farm: this.farm,
+            user: this.user,
+            language: this.language
         });
     } 
 }
