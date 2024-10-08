@@ -17,7 +17,7 @@
     <label for = "Crops"> Crops: </label>
     <select id="Crops" v-model="selectedCrop" >
         <optgroup label="Crops">
-            <option v-for="crop in crops"> {{ crop }} </option>
+            <option v-for="crop in cropNames" :key = "crop"> {{ crop }} </option>
         </optgroup>
       </select>
 
@@ -60,6 +60,18 @@
 
 <script>
 var firstVue = new Vue({
+    created() {
+        console.log("HarvestReport Vue instance created!");
+        getIDToCropMap()
+        .then((theMap) => {
+        this.idToCropMap = theMap;
+        console.log("Map fetched successfully", this.idToCropMap);
+
+        })
+        .catch((error) => {
+            console.error("Error fetching the map", error);
+        });
+    },
 el: "#First-vue",
 data: {
     header: "My Sample Harvest Report",
@@ -79,9 +91,15 @@ data: {
     ],
     crops: ["Broccoli", "Kale", "Peas"],
     areas: ["North Field", "South Field", "Greenhouse"],
-    harvestLogs: [
-    ],
+    harvestLogs: [],
+    idToCropMap: new Map()
 },
+    computed: {
+        cropNames() {
+            return Array.from(this.idToCropMap.values());
+            console.log("Map fetched successfully");
+        }
+    },
     methods: {
     generateReport: function() {
 
@@ -114,7 +132,7 @@ data: {
             user: this.user,
             language: this.language
         });
-    } 
+    }
 }
 });
 Vue.config.devtools = true;
