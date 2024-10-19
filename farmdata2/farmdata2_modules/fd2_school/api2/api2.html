@@ -92,7 +92,8 @@ data: {
     crops: ["Broccoli", "Kale", "Peas"],
     areas: ["North Field", "South Field", "Greenhouse"],
     harvestLogs: [],
-    idToCropMap: new Map()
+    idToCropMap: new Map(),
+    harvestLogsArray: []
 },
     computed: {
         cropNames() {
@@ -102,7 +103,20 @@ data: {
     },
     methods: {
     generateReport: function() {
-
+        let startDateUnix = dayjs(this.startDate).unix();
+        let endDateUnix = dayjs(this.endDate).unix();
+        console.log('Start Timestamp', startDateUnix);
+        console.log('End Timestamp', endDateUnix);
+        const endpoint = `/log.json?type=farm_harvest&timestamp[ge]=${startDateUnix}&timestamp[le]=${endDateUnix}`;
+        
+        getAllPages(endpoint)
+        .then((pages) => {
+            this.harvestLogsArray = pages;
+            console.log("Harvest logs successfully fetched", this.harvestLogsArray);
+        })
+        .catch((error) => {
+            console.error('Error fetching harvest logs', error);
+        })
         axios.get('/farm.json')  // this line sends the request.
 .then((response) => {
 	// Block A:
