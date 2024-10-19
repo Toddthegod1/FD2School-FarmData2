@@ -104,8 +104,11 @@ data: {
         harvestReportRows() {
             let tableRows = []
             for (let log of this.harvestLogsArray) {
-                let area = log.area ? log.area[0].name : "Unknown Area"; 
 
+                if (this.selectedCrop && cropName !== this.selectedCrop) {
+            continue; 
+        }
+        let area = log.area ? log.area[0].name : "Unknown Area"; 
         let harvestQuantity = log.quantity.find(q => q.label === "harvest");
         let yieldAmount = harvestQuantity ? harvestQuantity.value : "N/A";
         let units = harvestQuantity ? harvestQuantity.units : "N/A";
