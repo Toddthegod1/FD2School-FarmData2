@@ -17,7 +17,7 @@
 
     <label for = "Crops"> Crops: </label>
     <select id="Crops" v-model="selectedCrop" >
-        <optgroup label="Crops">
+        <optgroup data-cy = "crop-dropdown" label="Crops">
             <option v-for="crop in cropNames" :key = "crop"> {{ crop }} </option>
         </optgroup>
       </select>
@@ -120,7 +120,7 @@ data: {
                     date: formattedDate,
                     area: area,     
                     crop: cropName,    
-                    yield: yieldName,     
+                    yield: yieldAmount,     
                     units: units
                 }
                 tableRows.push(tableRow);
