@@ -7,12 +7,12 @@
         <li v-for="name in names">{{ name }}</li>
     </ul>
 
-    <label for="start-date"> Start Date:</label>
-    <input type ="date" id="start-date" min ="2014-01-01" :max ="endDate" v-model="startDate" />
+    <label for="start-date">Start Date:</label>
+    <input data-cy="start-date" type ="date" id="start-date" min ="2014-01-01" :max ="endDate" v-model="startDate" />
     <br>
 
     <label for="end-date">End Date:</label>
-    <input type ="date" id="end-date" :min ="startDate" max ="2020-01-01" v-model="endDate" />
+    <input data-cy="end-date" type ="date" id="end-date" :min ="startDate" max ="2020-01-01" v-model="endDate" />
 `   <br>
 
     <label for = "Crops"> Crops: </label>
@@ -76,8 +76,8 @@ var firstVue = new Vue({
 el: "#First-vue",
 data: {
     header: "My Sample Harvest Report",
-    startDate: " ",
-    endDate: " ",
+    startDate: "2020-05-05",
+    endDate: "2020-05-15",
     selectedCrop: "",
     selectedArea: "",
     farm: " ",
